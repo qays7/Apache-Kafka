@@ -24,4 +24,5 @@ public class Producer {
         log.debug("#### -> Producing message -> {}", user);
         this.kafkaTemplate.send(TOPIC, user.toString());
     }
+
 }
