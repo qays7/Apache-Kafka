@@ -15,6 +15,7 @@ public class Producer {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
+    @SuppressWarnings("unused")
     public void sendMessage(String message) {
         log.debug("#### -> Producing message -> {}", message);
         this.kafkaTemplate.send(TOPIC, message);
