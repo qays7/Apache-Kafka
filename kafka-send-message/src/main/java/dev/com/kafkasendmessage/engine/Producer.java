@@ -1,5 +1,6 @@
 package dev.com.kafkasendmessage.engine;
 
+import dev.com.kafkasendmessage.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -17,5 +18,10 @@ public class Producer {
     public void sendMessage(String message) {
         log.debug("#### -> Producing message -> {}", message);
         this.kafkaTemplate.send(TOPIC, message);
+    }
+
+    public void sendMessage(User user) {
+        log.debug("#### -> Producing message -> {}", user);
+        this.kafkaTemplate.send(TOPIC, user.toString());
     }
 }
